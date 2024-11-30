@@ -1,10 +1,14 @@
 import React from 'react'
 import bar from '../home/assests/bar.svg'
+import { useNavigate } from 'react-router-dom'
 import flag from '../home/assests/lead.png'
 
 const home = () => {
+
+    const navigate = useNavigate(); 
+
   return (
-    <div className='bg-[#171921] w-full h-auto'>
+    <div className='bg-[#171921] w-auto h-screen'>
         <div className='flex items-baseline justify-center gap-4 pt-[3rem]'>
         <img src={flag} className='w-[5vw] h-[5vh]'/>
         </div>
@@ -24,8 +28,15 @@ const home = () => {
         </div>
         <div className='flex justify-between mr-[2rem] ml-[2rem] pt-14'>
             <img src={bar} className='w-[12vw] transform scale-x-[-1]'/>
+            
             <img src={bar} className='w-[12vw]'/>
         </div>
+        <div className='flex justify-center mt-[-6rem]'>
+        <button className='bg-yellow-500 text-white text-3xl font-bold py-2 px-8 rounded-full hover:bg-yellow-600 transition duration-300'
+         onClick={() => navigate('/leaderboard')}>
+          START
+        </button>
+      </div>
         
         
         </div>
