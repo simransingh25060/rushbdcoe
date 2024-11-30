@@ -22,9 +22,9 @@ const home = () => {
         <div className='flex justify-center pt-3'>
             <span className='text-white font-Gabarito text-[2rem]'>Race the clock !</span>
         </div>
-        <div className='flex justify-between mr-[2rem] ml-[2rem] pt-9'>
-            <img src={bar} className='w-[12rem] transform scale-x-[-1]'/>
-            <img src={bar} className='w-[12rem]'/>
+        <div className='flex justify-between mr-[2rem] ml-[2rem] pt-14'>
+            <img src={bar} className='w-[12vw] transform scale-x-[-1]'/>
+            <img src={bar} className='w-[12vw]'/>
         </div>
         
         
