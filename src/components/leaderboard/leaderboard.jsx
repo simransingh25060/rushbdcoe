@@ -88,13 +88,13 @@ const leaderboard = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       eliminateTeams();
-    }, 3000); // Eliminate teams every 5 seconds
+    }, 1000); // Eliminate teams every 5 seconds
 
     return () => clearInterval(interval); // Cleanup on unmount
   }, [teams]);
 
   const eliminateTeams = () => {
-    if (teams.length === 0) return; // Stop when no teams are left
+    if (teams.length === 3) return; // Stop when no teams are left
 
     const batchSize = 3; // Number of teams to eliminate at a time
     const teamsToEliminate = teams.slice(0, batchSize); // Get the first `batchSize` teams
@@ -109,6 +109,7 @@ const leaderboard = () => {
     setEliminatedTeams((prev) => [...prev, ...updatedTeams]); // Add to eliminated list
     setTeams(remainingTeams); // Update the remaining teams
   };
+  const sortedTeams = [...teams].sort((a, b) => b.points - a.points);
 
 
 
@@ -147,7 +148,7 @@ const leaderboard = () => {
               <span className='font-Istok text-white text-[1rem] font-bold'>Points</span>
             </div>
             <div className="flex flex-col gap-4 p-4">
-            {teams.slice(0, teams.length - 3).map((team, index) => (
+            {sortedTeams.map((team, index) => (
       <div
         key={index}
         className="border rounded-3xl bg-[#FFF] flex items-center justify-around gap-[20rem] p-4 mb-4"
