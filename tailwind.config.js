@@ -9,6 +9,7 @@ export default {
       fontFamily: {
         Belleza: ['Belleza', 'sans-serif'],
         Gabarito: ['Gabarito', 'sans-serif'],
+        Istok: ['Istok Web', 'sans-serif'],
       },
     },
   },
