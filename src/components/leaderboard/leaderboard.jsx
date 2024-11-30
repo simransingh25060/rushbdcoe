@@ -112,6 +112,7 @@ const leaderboard = () => {
 
 
   return (
+    <div className='bg-[#171921] overflow-y-auto mb-0'>
     <div className='bg-[#171921] w-auto h-auto'>
       <style>
         {`
@@ -200,6 +201,7 @@ const leaderboard = () => {
           </div>
 
         </div>
+    </div>
     </div>
   )
 }
