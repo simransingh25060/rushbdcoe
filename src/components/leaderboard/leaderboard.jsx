@@ -88,26 +88,24 @@ const leaderboard = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       eliminateTeams();
-    }, 1000); // Eliminate teams every 5 seconds
-
-    return () => clearInterval(interval); // Cleanup on unmount
+    }, 1000); 
+    return () => clearInterval(interval); 
   }, [teams]);
 
   const eliminateTeams = () => {
-    if (teams.length === 3) return; // Stop when no teams are left
+    if (teams.length === 3) return; 
+    const batchSize = 3; 
+    const teamsToEliminate = teams.slice(0, batchSize);
+    const remainingTeams = teams.slice(batchSize); 
 
-    const batchSize = 3; // Number of teams to eliminate at a time
-    const teamsToEliminate = teams.slice(0, batchSize); // Get the first `batchSize` teams
-    const remainingTeams = teams.slice(batchSize); // Remaining teams
-
-    const currentTime = new Date().toLocaleTimeString(); // Fetch current time
+    const currentTime = new Date().toLocaleTimeString(); 
     const updatedTeams = teamsToEliminate.map((team) => ({
       ...team,
-      eliminatedAt: currentTime, // Add elimination time
+      eliminatedAt: currentTime, 
     }));
 
-    setEliminatedTeams((prev) => [...prev, ...updatedTeams]); // Add to eliminated list
-    setTeams(remainingTeams); // Update the remaining teams
+    setEliminatedTeams((prev) => [...prev, ...updatedTeams]);
+    setTeams(remainingTeams); 
   };
   const sortedTeams = [...teams].sort((a, b) => b.points - a.points);
 
@@ -153,9 +151,9 @@ const leaderboard = () => {
         key={index}
         className="border rounded-3xl bg-[#FFF] flex items-center justify-around gap-[20rem] p-4 mb-4"
       >
-        <span className="text-xl font-semibold text-black">{index + 1}</span> {/* Rank */}
-        <span className="text-lg font-bold text-black ml-9">{team.team}</span> {/* Team Name */}
-        <span className="text-lg text-black">{team.points} Points</span> {/* Points */}
+        <span className="text-xl font-semibold text-black">{index + 1}</span>
+        <span className="text-lg font-bold text-black ml-9">{team.team}</span> 
+        <span className="text-lg text-black">{team.points} Points</span> 
       </div>
     ))}
   </div>
@@ -168,12 +166,12 @@ const leaderboard = () => {
                   key={index}
                   className="border h-auto rounded-3xl flex items-center justify-between bg-[#E97474] text-black px-4"
                 >
-                  {/* Team name and score */}
+                 
                   <div className="flex flex-col">
                     <span className="text-[2rem] font-bold">{team.team}</span>
                     <span className="text-[1rem] font-bold">Score: {team.points}</span>
                   </div>
-                  {/* Elimination time */}
+                 
                   <div className="text-[1rem] text-black">
                     {team.eliminatedAt}
                   </div>
