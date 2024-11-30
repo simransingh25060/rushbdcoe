@@ -4,7 +4,7 @@ import flag from '../home/assests/lead.png'
 
 const home = () => {
   return (
-    <div className='bg-[#171921] w-full h-screen'>
+    <div className='bg-[#171921] w-full h-auto'>
         <div className='flex items-baseline justify-center gap-4 pt-[3rem]'>
         <img src={flag} className='w-[5vw] h-[5vh]'/>
         </div>
